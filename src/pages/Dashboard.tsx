@@ -4,6 +4,7 @@ import type { Location } from '../types'
 import { LocationForm } from '../components/LocationForm'
 import { DeleteConfirm } from '../components/DeleteConfirm'
 import { Select } from '../components/Select'
+import { SearchableSelect } from '../components/SearchableSelect'
 import { STATUS_LABELS, STATUS_COLORS } from '../lib/constants'
 
 type SortKey = 'name' | 'population' | 'territory' | 'status'
@@ -245,11 +246,12 @@ export function Dashboard() {
           />
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <span className="text-sm font-medium text-slate-600">Territory</span>
-            <Select
+            <SearchableSelect
               value={filterTerritory || ALL_VALUE}
               onValueChange={(v) => setFilterTerritory(v === ALL_VALUE ? '' : v)}
               options={territorySelectOptions}
               placeholder="All territories"
+              searchPlaceholder="Search territory..."
               ariaLabel="Filter by territory"
               className="w-full sm:w-[180px]"
             />
