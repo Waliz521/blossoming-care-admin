@@ -8,3 +8,10 @@ Data management panel for the Blossoming Care UK Territories Map. Login to manag
 - **Supabase** for database, auth, and API
 - **Tailwind CSS** for styling
 - **Radix UI** (Dialog, Select) for modals and dropdowns
+
+## Deployment
+
+Set these env vars (must match the map for changes to appear):
+
+- `VITE_SUPABASE_URL` – Supabase project URL
+- `VITE_SUPABASE_ANON_KEY` – Supabase anon key
