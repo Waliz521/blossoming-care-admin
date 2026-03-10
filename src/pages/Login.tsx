@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { supabase, isSupabaseConfigured } from '../lib/supabase'
 
 export function Login() {
   const [email, setEmail] = useState('')
@@ -19,7 +19,13 @@ export function Login() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-100 px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-slate-100 px-4">
+      {!isSupabaseConfigured && (
+        <div className="mb-4 w-full max-w-sm rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <strong>Supabase not configured.</strong> Set <code className="rounded bg-amber-100 px-1">VITE_SUPABASE_URL</code> and{' '}
+          <code className="rounded bg-amber-100 px-1">VITE_SUPABASE_ANON_KEY</code> in your deployment environment variables.
+        </div>
+      )}
       <div className="w-full max-w-sm rounded-xl bg-white p-4 shadow-lg sm:p-8">
         <h1 className="mb-6 text-xl font-semibold text-slate-800">
           Blossoming Care Admin
